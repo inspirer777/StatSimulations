@@ -242,7 +242,61 @@ Log.Gamma2 <- function(alpha, beta) {
   }
   return(f)
 }
+```
+# Bernoulli Distribution Likelihood Calculation
 
+This R code demonstrates how to compute the likelihood of a **Bernoulli distribution** given a set of parameters and data.
+
+## 1. **Simulate Data**
+
+```r
+set.seed(143)
+n = 30
+y <- rbinom(n, 1, .5)  # Generate 30 random values from a Bernoulli distribution with p = 0.5
+y  # Display the simulated data
+```
+# Beta Distribution Likelihood and Log-Likelihood
+
+This R code demonstrates how to compute the likelihood and log-likelihood for the **Beta distribution** using different values of the parameter \( b \).
+
+## 1. **Simulate Data**
+
+```r
+set.seed(143)
+y <- rbeta(3, 0.1, 0.2)  # Simulate 3 random values from a Beta distribution with alpha = 0.1 and beta = 0.2
+y  # Display the simulated data
+```
+# Distribution Likelihoods and Plotting
+
+This script computes the likelihood for various probability distributions using different functions, and visualizes the likelihood curves. The distributions covered are **Exponential**, **Binomial**, **Chi-Square**, **Beta**, **Cauchy**, and **Uniform**. 
+
+## 1. **Exponential Distribution**
+
+The likelihood function for the **Exponential distribution** is calculated based on the parameter \( \lambda \).
+
+### Exponential Likelihood Function
+
+```r
+Exp <- function(lambda, y) {
+  set.seed(143)
+  f = 0
+  y <- rexp(10, 4)  # Generate 10 random values from an exponential distribution with rate = 4
+
+  for (i in 1:length(lambda)) {
+    f[i] <- prod(lambda[i] * exp(-lambda[i] * y))  # Calculate likelihood for each lambda
+  }
+  return(f)
+}
+```
+
+# Likelihood Function Example
+
+### Problem:
+We are tasked with creating likelihood functions using 15 random samples. The given vector `x` contains the following values:
+
+```r
+x <- c(0.41, 0.91, -0.61, 0.38, 0.37, 0.36, 0.01, -0.28, -0.33, 0.99, -0.35, 0.1, 0.31, 0.75, -0.34)
+```
 
 
 
