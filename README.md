@@ -300,11 +300,17 @@ x <- c(0.41, 0.91, -0.61, 0.38, 0.37, 0.36, 0.01, -0.28, -0.33, 0.99, -0.35, 0.1
 
 
 
+# Likelihood Functions for Various Distributions
 
+This repository contains the implementation of likelihood functions for different probability distributions, using random samples. Below are the likelihood functions for various distributions, including Exponential, Binomial, Chi-Square, Beta, Cauchy, and Uniform.
+
+---
 
 ## Installation and Usage
 
 To use this repository, simply clone it and run the code within the R environment.
 
 ```bash
-git clone https://github.com/yourusername/repositoryname.git
+git clone https://github.com/inspirer777/StatSimulations.git
+```
+ 
