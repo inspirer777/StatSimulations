@@ -148,6 +148,106 @@ Pois(lambda, y)    # Compute likelihood for lambda = 1, 2, 3
 
 
 
+# Gamma Distribution: Likelihood and Log-Likelihood
+
+This repository demonstrates the computation and visualization of the **Likelihood** and **Log-Likelihood** functions for the Gamma Distribution. It also includes parameter estimation using optimization techniques.
+
+---
+
+## Gamma Distribution Formula
+
+The probability density function for the Gamma distribution is:
+
+\[
+f(x) = \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha-1} e^{-x / \beta}
+\]
+
+Where:
+- \( \alpha \): Shape parameter
+- \( \beta \): Scale parameter (fixed at \( \beta = 1 \) in this example)
+
+The **Log-Likelihood** is given by:
+\[
+\log(f(x)) = -\alpha \log(\beta) - \log(\Gamma(\alpha)) + (\alpha - 1) \log(x) - \frac{x}{\beta}
+\]
+
+---
+
+## Features
+
+1. **Likelihood Function**:
+   - Computes the likelihood of the Gamma distribution for different values of \( \alpha \).
+   - Plots the likelihood curve.
+
+2. **Log-Likelihood Function**:
+   - Computes the log-likelihood for different values of \( \alpha \).
+   - Plots the log-likelihood curve.
+
+3. **Optimization**:
+   - Estimates the parameter \( \alpha \) that maximizes the likelihood or log-likelihood using various optimization methods.
+
+4. **Visualization**:
+   - Side-by-side comparison of Likelihood and Log-Likelihood plots.
+   - Highlights the real \( \alpha \) and estimated \( \hat{\alpha} \) values.
+
+---
+
+## Code
+
+### Likelihood Function
+```r
+L.Gamma <- function(alpha) {
+  beta <- 1
+  n <- 100
+  set.seed(143)
+  y <- rgamma(n, 10, 1) # Real alpha = 10
+  f <- 0
+  for (i in 1:length(alpha)) {
+    f[i] <- prod(1 / (beta^alpha[i] * gamma(alpha[i])) * y^(alpha[i] - 1) * exp(-y / beta))
+  }
+  return(f)
+}
+
+alpha <- c(1, 4, 7)
+L.Gamma(alpha)
+
+curve(L.Gamma(x), 1, 20)
+```
+
+
+# Class 9: Two Parameters - Computing Likelihood for Gamma Distribution
+
+This code computes the **log-likelihood** for the **Gamma distribution** with two parameters: \( \alpha \) (shape) and \( \beta \) (scale). It also demonstrates plotting the likelihood surfaces and optimizes the parameters using different methods.
+
+## 1. **Log-Likelihood of Gamma Distribution**
+
+The log-likelihood for a Gamma distribution is given by:
+
+\[
+\log f(x) = -\alpha \cdot \log(\beta) - \log(\Gamma(\alpha)) + (\alpha - 1) \cdot \log(x) - \frac{x}{\beta}
+\]
+
+The `Log.Gamma2` function calculates the log-likelihood for given values of \( \alpha \) and \( \beta \).
+
+```r
+Log.Gamma2 <- function(alpha, beta) {
+  n = 100
+  set.seed(143)
+  y <- rgamma(n, 10, 1) 
+  f <- matrix(0, ncol = length(beta), nrow = length(alpha))
+  for (i in 1:length(alpha)) {
+    for (j in 1:length(beta)) {
+      f[i, j] <- sum(-alpha[i] * log(beta[j]) - log(gamma(alpha[i])) + (alpha[i] - 1) * log(y) - y / beta[j])
+    }
+  }
+  return(f)
+}
+
+
+
+
+
+
 ## Installation and Usage
 
 To use this repository, simply clone it and run the code within the R environment.
