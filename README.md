@@ -154,7 +154,8 @@ Exp <- function(lambda, y) {
 
 ### Installation and Usage
 To use this repository, clone it and run the code in an R environment : 
-```bash git clone https://github.com/inspirer777/StatSimulations.git
+```bash
+git clone https://github.com/inspirer777/StatSimulations.git
 
 ```
 
