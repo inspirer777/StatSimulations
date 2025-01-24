@@ -144,7 +144,7 @@ lambda <- c(1, 2, 3)
 y <- rpois(10, 4)  # Generate sample data
 Pois(lambda, y)    # Compute likelihood for lambda = 1, 2, 3
 
-
+```
 
 
 
